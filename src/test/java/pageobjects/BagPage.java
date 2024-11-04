@@ -54,9 +54,12 @@ public class BagPage {
   public void waitForBagToBeEmpty() {
     getCommands().waitForAndGetVisibleElementLocated(EMPTY_BAG_MESSAGE);
   }
+  public void waitForDropdown(){
+    getCommands().waitForAndGetVisibleElementLocated(QUANTITY_TEXT_IN_DROPDOWN);
+  }
 
   public void setQuantityForFirstProduct(int quantity) {
-    getCommands().waitForAndGetVisibleElementLocated(BAG_PAGE);
+    waitForDropdown();
 
     List<WebElement> bagItems = getBagItems();
     if (!bagItems.isEmpty()) {
